@@ -28,7 +28,7 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: false, // ponlo en true si usas HTTPS
-        sameSite: "lax", // "none" si usas frontend en otro dominio con HTTPS y lax si es el mismo dominio
+        sameSite: "none", // "none" si usas frontend en otro dominio con HTTPS y lax si es el mismo dominio
         maxAge: 1000 * 60 * 60 * 7// 7 hora si se quiere una hora quitar el *7
     }
 }));
