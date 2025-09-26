@@ -62,7 +62,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     try {
-      const res = await fetch("https://ue-san-jose-gxkx.onrender.com/api/login/logout", {
+      const res = await fetch("http://localhost:4000/api/login/logout", {
         method: "POST",
         credentials: "include"
       });
