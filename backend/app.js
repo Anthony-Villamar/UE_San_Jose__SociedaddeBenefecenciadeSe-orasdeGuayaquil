@@ -29,7 +29,7 @@ app.use(session({
         httpOnly: true,
         secure: true, // ponlo en true si se usa HTTPS y none
         sameSite: "none", // "none" si usas frontend en otro dominio con HTTPS y lax si es el mismo dominio
-        domain: ".gxkx.onrender.com",
+        domain: "ue-san-jose-gxkx.onrender.com",
         maxAge: 1000 * 60 * 60 * 7// 7 hora si se quiere una hora quitar el *7
     }
 }));
