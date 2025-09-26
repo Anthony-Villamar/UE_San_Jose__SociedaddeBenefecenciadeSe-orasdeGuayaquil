@@ -14,7 +14,7 @@ import usuariosRouter from './routes/usuarios.js';
 dotenv.config();    
 const app = express();
 app.use(cors(
-    {origin: "https://ue-san-jose-sociedaddebenefecenciadese-59x5.onrender.com/",
+    {origin: "https://ue-san-jose-sociedaddebenefecenciadese-59x5.onrender.com",
     credentials: true} 
 ));
 app.use(express.json());
