@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Obtener datos del usuario logueado
   let usuario;
   try {
-    const res = await fetch('http://localhost:4000/api/login/me', { credentials: 'include' });
+    const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/login/me', { credentials: 'include' });
     if (!res.ok) throw new Error('No logueado');
     usuario = await res.json();
   } catch {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Función para cargar roles dinámicamente en un select
 async function cargarRoles(selectElement, selectedRol = '') {
   try {
-    const res = await fetch('http://localhost:4000/api/usuarios/roles');
+    const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/usuarios/roles');
     if (!res.ok) throw new Error('Error al cargar roles');
     const roles = await res.json(); // debe ser array de strings ["secretaria", "docente", ...]
 
@@ -68,7 +68,7 @@ document.getElementById('registroForm').addEventListener('submit', async (e) => 
   }
 
   try {
-    const res = await fetch('http://localhost:4000/api/usuarios/registrar', {
+    const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/usuarios/registrar', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -171,7 +171,7 @@ document.getElementById('actualizarForm').addEventListener('submit', async (e) =
 
   if (result.isConfirmed) {
     try {
-      const res = await fetch(`http://localhost:4000/api/usuarios/${cedula}`, {
+      const res = await fetch(`https://ue-san-jose-gxkx.onrender.com/api/usuarios/${cedula}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -219,7 +219,7 @@ document.getElementById('cedulaActualizar').addEventListener('input', async (e) 
 
   if (cedula.length >= 10) {
     try {
-      const res = await fetch(`http://localhost:4000/api/usuarios/buscar-con-roles/${cedula}`);
+      const res = await fetch(`https://ue-san-jose-gxkx.onrender.com/api/usuarios/buscar-con-roles/${cedula}`);
       const data = await res.json();
 
       if (res.ok && data.success) {

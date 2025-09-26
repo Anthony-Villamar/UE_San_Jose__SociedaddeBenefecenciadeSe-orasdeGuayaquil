@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 1. Obtener usuario en sesión
   let user;
   try {
-    const res = await fetch("http://localhost:4000/api/login/me", {
+    const res = await fetch("https://ue-san-jose-gxkx.onrender.com/api/login/me", {
       credentials: "include"
     });
     if (!res.ok) throw new Error("No logueado");
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 2. Cargar usuarios por rol
   try {
-    const res = await fetch(`http://localhost:4000/api/usuarios/${rolfetch}`);
+    const res = await fetch(`https://ue-san-jose-gxkx.onrender.com/api/usuarios/${rolfetch}`);
     const usuarios = await res.json();
 
     const defaultOption = document.createElement('option');
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-      const res = await fetch('http://localhost:4000/api/encuestas', {
+      const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/encuestas', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include', // 👈 aquí también
@@ -104,7 +104,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/login/logout", {
+      const res = await fetch("https://ue-san-jose-gxkx.onrender.com/api/login/logout", {
         method: "POST",
         credentials: "include"
       });
