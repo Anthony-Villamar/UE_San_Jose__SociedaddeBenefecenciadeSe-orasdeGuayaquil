@@ -14,7 +14,7 @@ import usuariosRouter from './routes/usuarios.js';
 dotenv.config();    
 const app = express();
 app.use(cors(
-    {origin: "http://localhost:5500", // 👈 cambia al puerto de tu frontend
+    {origin: "https://ue-san-jose-sociedaddebenefecenciadese-59x5.onrender.com/",
     credentials: true} 
 ));
 app.use(express.json());
@@ -27,7 +27,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        secure: true, // ponlo en true si usas HTTPS
+        secure: true, // ponlo en true si se usa HTTPS y none
         sameSite: "none", // "none" si usas frontend en otro dominio con HTTPS y lax si es el mismo dominio
         maxAge: 1000 * 60 * 60 * 7// 7 hora si se quiere una hora quitar el *7
     }
