@@ -37,7 +37,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     return;
   }
   try {
-    const response = await fetch("https://ue-san-jose-gxkx.onrender.com/api/login", {
+    const response = await fetch("http://localhost:4000/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",   // 👈 guarda cookie
@@ -55,7 +55,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
       alert(respuesta.message);
 
       // Ya no guardo en sessionStorage, sino que pregunto al backend
-      const me = await fetch("https://ue-san-jose-gxkx.onrender.com/api/login/me", {
+      const me = await fetch("http://localhost:4000/api/login/me", {
         credentials: "include"
        }).then(r => r.json());
 

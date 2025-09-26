@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Obtener datos del usuario logueado
   let usuario;
   try {
-    const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/login/me', { credentials: 'include' });
+    const res = await fetch('http://localhost:4000/api/login/me', { credentials: 'include' });
     if (!res.ok) throw new Error('No logueado');
     usuario = await res.json();
   } catch {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 🔽 Mostrar TOP 3 de atención
   try {
-    const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/estadisticas/top3', { credentials: 'include' });
+    const res = await fetch('http://localhost:4000/api/estadisticas/top3', { credentials: 'include' });
     const top = await res.json();
     // const contenedor = document.getElementById('topAtenciones1');
     // contenedor.innerHTML = '';
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // 🔽 Estadísticas generales
 try {
-  const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/estadisticas/detalle', { credentials: 'include' });
+  const res = await fetch('http://localhost:4000/api/estadisticas/detalle', { credentials: 'include' });
   const detalle = await res.json();
 
   document.getElementById('detalleUsuario').innerHTML = `
@@ -244,7 +244,7 @@ function mostrarDatosYGrafico(filtrado, titulo = 'Promedios') {
 
 async function mostrarEstadisticaPorFecha(fecha) {
   try {
-    const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/estadisticas/detalle/diario', { credentials: 'include' });
+    const res = await fetch('http://localhost:4000/api/estadisticas/detalle/diario', { credentials: 'include' });
     const dias = await res.json();
 
     const fechaFormateada = new Date(fecha).toISOString().slice(0, 10);
@@ -277,7 +277,7 @@ document.getElementById('filtrarBtn').addEventListener('click', async () => {
     if (!desde || !hasta) return alert('Selecciona ambas fechas');
 
     try {
-      const res = await fetch(`https://ue-san-jose-gxkx.onrender.com/api/estadisticas/detalle/promedio?desde=${desde}&hasta=${hasta}`, { credentials: 'include' });
+      const res = await fetch(`http://localhost:4000/api/estadisticas/detalle/promedio?desde=${desde}&hasta=${hasta}`, { credentials: 'include' });
       const data = await res.json();
 
       if (!data || (!data.promedio_puntualidad && !data.promedio_trato && !data.promedio_resolucion)) {
@@ -303,7 +303,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     try {
-      const res = await fetch("https://ue-san-jose-gxkx.onrender.com/api/login/logout", {
+      const res = await fetch("http://localhost:4000/api/login/logout", {
         method: "POST",
         credentials: "include"
       });

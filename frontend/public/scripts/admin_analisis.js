@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Obtener datos del usuario logueado
   let usuario;
   try {
-    const res = await fetch('https://ue-san-jose-gxkx.onrender.com/api/login/me', { credentials: 'include' });
+    const res = await fetch('http://localhost:4000/api/login/me', { credentials: 'include' });
     if (!res.ok) throw new Error('No logueado');
     usuario = await res.json();
   } catch {
@@ -23,7 +23,7 @@ document.getElementById("btn-filtrar").addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch(`https://ue-san-jose-gxkx.onrender.com/api/estadisticas/calendario?inicio=${inicio}&fin=${fin}&area=${area}`);
+    const res = await fetch(`http://localhost:4000/api/estadisticas/calendario?inicio=${inicio}&fin=${fin}&area=${area}`);
     if (!res.ok) throw new Error("Error al obtener datos");
     const data = await res.json();
 

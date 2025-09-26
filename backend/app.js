@@ -14,7 +14,7 @@ import usuariosRouter from './routes/usuarios.js';
 dotenv.config();    
 const app = express();
 app.use(cors(
-    {origin: "https://ue-san-jose-sociedaddebenefecenciadese-59x5.onrender.com",
+    {origin: ["http://localhost:5500","https://ue-san-jose-sociedaddebenefecenciadese-59x5.onrender.com"],
     credentials: true} 
 ));
 app.use(express.json());
@@ -27,9 +27,8 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        secure: true, // ponlo en true si se usa HTTPS y none
-        sameSite: "none", // "none" si usas frontend en otro dominio con HTTPS y lax si es el mismo dominio
-        domain: "ue-san-jose-gxkx.onrender.com",
+        secure: false, // ponlo en true si se usa HTTPS y none
+        sameSite: "lax", // "none" si usas frontend en otro dominio con HTTPS y lax si es el mismo dominio
         maxAge: 1000 * 60 * 60 * 7// 7 hora si se quiere una hora quitar el *7
     }
 }));
